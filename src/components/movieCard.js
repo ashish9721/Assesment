@@ -1,37 +1,43 @@
 import React from 'react';
-import {  View, Text,StyleSheet,Image } from 'react-native';
-import { ReviewStars } from './reviewCard';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import {ReviewStars} from './reviewCard';
+import {vw, vh} from '../utils/dimensions';
 
-export  function MovieCard({rowData}) { 
-    return (
-      <View style={styles.container}>
-          <Image source={{uri:rowData.item.image}} style={styles.movieImage}/>
-          <Text style={styles.lightText}>{rowData.item.type}</Text>
-          {ReviewStars(rowData.item.review)}
-          <Text style={styles.movieText}>{rowData.item.name}</Text>
-      </View>
-    );
-  }
+/**
+ *
+ * @param {*} rowData for showing moview element.
+ */
 
-  const styles = StyleSheet.create({
-      container:{
-        width: 196,
-        marginHorizontal: 21
-      },
-    movieImage: {
-        height: 178,
-        width: 192,
-        borderRadius: 18
-    },
-    lightText: {
-        fontSize: 14,
-        fontWeight: '300',
-        marginVertical: 8,
-        color: 'gray'
-    },
-    movieText:{
-        fontSize: 16,
-        fontWeight: '600',
-        marginTop: 12
-    }
-  })
+export function MovieCard({rowData}) {
+  return (
+    <View style={styles.container}>
+      <Image source={{uri: rowData.item.image}} style={styles.movieImage} />
+      <Text style={styles.lightText}>{rowData.item.type}</Text>
+      {ReviewStars(rowData.item.review)}
+      <Text style={styles.movieText}>{rowData.item.name}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    width: vw(196),
+    marginHorizontal: vw(5),
+  },
+  movieImage: {
+    height: vh(130),
+    width: vw(170),
+    borderRadius: vw(18),
+  },
+  lightText: {
+    fontSize: vw(14),
+    fontWeight: '300',
+    marginVertical: vh(5),
+    color: 'gray',
+  },
+  movieText: {
+    fontSize: vw(16),
+    fontWeight: '600',
+    marginTop: vh(10),
+  },
+});

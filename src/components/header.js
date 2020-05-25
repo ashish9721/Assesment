@@ -12,6 +12,11 @@ import Svg, {
 } from 'react-native-svg';
 import {vh, vw, DesignHeight, DesignWidth} from '../utils/dimensions';
 
+
+/**
+ * Header is ellipsoidal shape made with SVG ellipse Path, as the curvature in the given design 
+ * Format is larger so we have to use,ellipse Path for achieving the required curvature shape.
+ */
 export function Header() {
   return (
     <View >

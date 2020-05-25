@@ -2,6 +2,12 @@ import React from 'react';
 import {Text, View, StyleSheet, Image, FlatList} from 'react-native';
 import {vh, vw} from '../utils/dimensions';
 
+/**
+ * Cinemas function for showing a list of a cinemas in Flatlist,
+ * Wherever we call it ,it renders the list of cinemas.
+ * We just need to pass name,id and image url as a dataForm.
+ */
+
 export function Cinemas() {
   function CinemaCard(rowData) {
     const {item} = rowData;
@@ -20,7 +26,6 @@ export function Cinemas() {
       <Text style={styles.CinemaTxt}>Cinemas around your area</Text>
       <FlatList
         data={CinemaData}
-        // style={{backgroundColor:'black',}}
         horizontal={true}
         keyExtractor={item => item.id.toString()}
         renderItem={CinemaCard}

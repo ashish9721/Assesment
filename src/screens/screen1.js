@@ -8,14 +8,12 @@ import {
   Platform,
   TouchableOpacity,
   ScrollView,
-  FlatList
+  FlatList,
 } from 'react-native';
 // Custom Imports
-import {Header,Cinemas,MovieCard} from '../components';
+import {Header, Cinemas, MovieCard} from '../components';
 import {vh, vw} from '../utils/dimensions';
-import Tabbar from '../components/tabbar'
-
-
+import Tabbar from '../components/tabbar';
 
 export function Screen1() {
   return (
@@ -47,20 +45,20 @@ export function Screen1() {
           />
         </View>
       </View>
-        <ScrollView style={{paddingLeft:vw(20),height:vh(300),zIndex:2}} showsVerticalScrollIndicator={false} >
-                 <Cinemas />
-                 <>
+      <ScrollView
+        style={styles.scrollview}
+        showsVerticalScrollIndicator={false}>
+        <Cinemas />
+        <>
           <Text style={styles.cardHeading}>New Releases</Text>
 
           <FlatList
             data={movies}
             keyExtractor={item => item.id}
-            style={{borderWidth:1,borderColor:'red',paddingVertical: vh(10),}}
+            style={{paddingVertical: vh(10)}}
             horizontal
             showsHorizontalScrollIndicator={false}
-            renderItem={rowData => (
-              <MovieCard rowData={rowData} />
-            )}
+            renderItem={rowData => <MovieCard rowData={rowData} />}
           />
         </>
         <>
@@ -71,16 +69,13 @@ export function Screen1() {
             keyExtractor={item => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}
-            renderItem={rowData => (
-              <MovieCard rowData={rowData} />
-            )}
+            renderItem={rowData => <MovieCard rowData={rowData} />}
           />
         </>
-
-        </ScrollView>
-        <View style={{alignSelf:'flex-end'}} >
+      </ScrollView>
+      <View style={{alignSelf: 'flex-end'}}>
         <Tabbar />
-        </View>
+      </View>
     </View>
   );
 }
@@ -101,8 +96,6 @@ const styles = StyleSheet.create({
     top: vh(130),
     left: vw(0),
     right: vw(0),
-
-    // backgroundColor:'red'
   },
   moreImge: {width: vw(25), height: vw(20)},
   userImage: {
@@ -123,54 +116,59 @@ const styles = StyleSheet.create({
     shadowColor: 'lightgray',
     shadowOpacity: 0.8,
     shadowRadius: vw(10),
-    elevation:7
+    elevation: 7,
   },
   searchImg: {height: vw(20), width: vw(20)},
   searchInput: {flex: 1, marginHorizontal: vw(15), fontSize: vw(16)},
   cardHeading: {
     fontSize: 18,
     fontWeight: '700',
-    marginVertical: 15,
+    marginVertical: vh(10),
     alignSelf: 'flex-start',
-    marginLeft: 15
+    marginLeft: vw(15),
   },
+  scrollview: {paddingHorizontal: vw(20), height: vh(300)},
 });
 
 const movies = [
-    {
-      id: '1',
-      name: "Blade Runner Future",
-      type: 'Action Movie',
-      review: 4,
-      image: "https://tse1.mm.bing.net/th?id=OIP.4KkBJLj0-_nGCblVAzlA2AHaLH&pid=Api"
-    }, {
-      id: '2',
-      name: 'Captain America Civil War',
-      type: 'Action Movie',
-      review: 4,
-      image: 'https://tse1.mm.bing.net/th?id=OIP.e8k9x9aCBremYq1FiFGe3AHaEK&pid=Api'
-    },
-    {
-      id: '3',
-      name: 'Beauty and the beast',
-      type: 'Drama Movie',
-      review: 3,
-      image: 'https://tse1.mm.bing.net/th?id=OIP.xUTZDMr5JRI804C4LBxs_AHaJ3&pid=Api'
-    },
-    {
-      id: '4',
-      name: 'Fast & Furious',
-      type: 'Action Movie',
-      review: 4,
-      image: 'https://tse1.mm.bing.net/th?id=OIP.84Ex24Shok0NUmEYdwDR0QHaD3&pid=Api'
-    },
-    {
-      id: '5',
-      name: 'The Dark Knight',
-      type: 'Action Movie',
-      review: 5,
-      image: 'https://tse1.mm.bing.net/th?id=OIP.dDmLK8vLYZPrZGHsrjxCjwAAAA&pid=Api'
-    }
-  ]
-  
-  
+  {
+    id: '1',
+    name: 'Blade Runner Future',
+    type: 'Action Movie',
+    review: 4,
+    image:
+      'https://tse1.mm.bing.net/th?id=OIP.4KkBJLj0-_nGCblVAzlA2AHaLH&pid=Api',
+  },
+  {
+    id: '2',
+    name: 'Captain America Civil War',
+    type: 'Action Movie',
+    review: 4,
+    image:
+      'https://tse1.mm.bing.net/th?id=OIP.e8k9x9aCBremYq1FiFGe3AHaEK&pid=Api',
+  },
+  {
+    id: '3',
+    name: 'Beauty and the beast',
+    type: 'Drama Movie',
+    review: 3,
+    image:
+      'https://tse1.mm.bing.net/th?id=OIP.xUTZDMr5JRI804C4LBxs_AHaJ3&pid=Api',
+  },
+  {
+    id: '4',
+    name: 'Fast & Furious',
+    type: 'Action Movie',
+    review: 4,
+    image:
+      'https://tse1.mm.bing.net/th?id=OIP.84Ex24Shok0NUmEYdwDR0QHaD3&pid=Api',
+  },
+  {
+    id: '5',
+    name: 'The Dark Knight',
+    type: 'Action Movie',
+    review: 5,
+    image:
+      'https://tse1.mm.bing.net/th?id=OIP.dDmLK8vLYZPrZGHsrjxCjwAAAA&pid=Api',
+  },
+];
